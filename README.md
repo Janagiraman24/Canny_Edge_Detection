@@ -1,4 +1,4 @@
-# edge-detection-opencv
+# canny-edge-detection-
 
 ## Aim
 
