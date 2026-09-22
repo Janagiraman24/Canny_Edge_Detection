@@ -94,21 +94,6 @@ plt.show()
 
 ## Output
 
-###  Sobel Edge Detector
-- Detects edges in horizontal and vertical directions  
-- Produces gradient-based edge map  
-
-###  Prewitt Edge Detector
-- Similar to Sobel but simpler kernel  
-- Detects directional edges  
-
-###  Roberts Edge Detector
-- Detects edges using diagonal gradients  
-- Sensitive to noise  
-
-###  Laplacian Edge Detector
-- Detects edges using second-order derivatives  
-- Highlights rapid intensity changes  
 
 ###  Canny Edge Detector
 - Multi-stage edge detection  
