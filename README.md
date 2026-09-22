@@ -2,7 +2,7 @@
 
 ## Aim
 
-To perform edge detection using Sobel, Roberts, Prewitt, Laplacian, and Canny edge detectors.
+To perform edge detection using Canny edge detectors.
 
 ---
 
@@ -28,21 +28,9 @@ Load an image using `cv2.imread()`.
 Convert the image to grayscale.
 
 ### Step 4:
-Apply **Sobel operator** using OpenCV to detect edges.
-
-### Step 5:
-Apply **Prewitt operator** using custom kernels.
-
-### Step 6:
-Apply **Roberts operator** using custom kernels.
-
-### Step 7:
-Apply **Laplacian operator** using OpenCV.
-
-### Step 8:
 Apply **Canny edge detector** using OpenCV.
 
-### Step 9:
+### Step 5:
 Display all edge-detected images for comparison.
 
 ---
@@ -80,52 +68,13 @@ plt.title('Grayscale Image')
 plt.axis('off')
 plt.show()
 ```
-```python
-# Step 4: Apply Sobel operator
-sobel_x = cv2.Sobel(gray, cv2.CV_64F, 1, 0, ksize=3)
-sobel_y = cv2.Sobel(gray, cv2.CV_64F, 0, 1, ksize=3)
-sobel = cv2.magnitude(sobel_x, sobel_y)
-sobel = cv2.convertScaleAbs(sobel)
-```
-```python
-# Step 5: Apply Prewitt operator using custom kernels
-prewitt_x = np.array([[-1, 0, 1],
-                      [-1, 0, 1],
-                      [-1, 0, 1]], dtype=np.float32)
 
-prewitt_y = np.array([[-1, -1, -1],
-                      [ 0,  0,  0],
-                      [ 1,  1,  1]], dtype=np.float32)
-
-px = cv2.filter2D(gray, cv2.CV_32F, prewitt_x)
-py = cv2.filter2D(gray, cv2.CV_32F, prewitt_y)
-prewitt = cv2.magnitude(px, py)
-prewitt = cv2.convertScaleAbs(prewitt)
-```
 ```python
-# Step 6: Apply Roberts operator using custom kernels
-roberts_x = np.array([[1, 0],
-                      [0, -1]], dtype=np.float32)
-
-roberts_y = np.array([[0, 1],
-                      [-1, 0]], dtype=np.float32)
-
-rx = cv2.filter2D(gray, cv2.CV_32F, roberts_x)
-ry = cv2.filter2D(gray, cv2.CV_32F, roberts_y)
-roberts = cv2.magnitude(rx, ry)
-roberts = cv2.convertScaleAbs(roberts)
-```
-```python
-# Step 7: Apply Laplacian operator
-laplacian = cv2.Laplacian(gray, cv2.CV_64F)
-laplacian = cv2.convertScaleAbs(laplacian)
-```
-```python
-# Step 8: Apply Canny edge detector
+# Step 4: Apply Canny edge detector
 canny = cv2.Canny(gray, 100, 200)
 ```
 ```python
-# Step 9: Display all edge-detected images for comparison
+# Step 5: Display all edge-detected images for comparison
 plt.figure(figsize=(15, 10))
 
 plt.subplot(2, 3, 1)
@@ -133,25 +82,6 @@ plt.imshow(image_rgb)
 plt.title('Original Image')
 plt.axis('off')
 
-plt.subplot(2, 3, 2)
-plt.imshow(sobel, cmap='gray')
-plt.title('Sobel Edge Detection')
-plt.axis('off')
-
-plt.subplot(2, 3, 3)
-plt.imshow(prewitt, cmap='gray')
-plt.title('Prewitt Edge Detection')
-plt.axis('off')
-
-plt.subplot(2, 3, 4)
-plt.imshow(roberts, cmap='gray')
-plt.title('Roberts Edge Detection')
-plt.axis('off')
-
-plt.subplot(2, 3, 5)
-plt.imshow(laplacian, cmap='gray')
-plt.title('Laplacian Edge Detection')
-plt.axis('off')
 
 plt.subplot(2, 3, 6)
 plt.imshow(canny, cmap='gray')
@@ -185,9 +115,8 @@ plt.show()
 - Produces clean and thin edges  
 <img width="278" height="478" alt="image" src="https://github.com/user-attachments/assets/8e8836cc-f334-41f4-b44f-366987a10be6" />
 
-<img width="1332" height="553" alt="image" src="https://github.com/user-attachments/assets/b9bc27bb-f569-40d9-bc01-d051efd8fc82" />
 
-<img width="1376" height="573" alt="image" src="https://github.com/user-attachments/assets/b8131d55-277c-45f1-b98e-08303f12c3bc" />
+<img width="285" height="442" alt="image" src="https://github.com/user-attachments/assets/d57d0c50-9b38-489c-bd24-417517a3b7a3" /><img width="263" height="438" alt="image" src="https://github.com/user-attachments/assets/1e78fe9c-7f16-4b14-8d20-1bb722cb455f" />
 
 
 
@@ -195,4 +124,4 @@ plt.show()
 
 ## Result
 
-Thus, edges are successfully detected using Sobel, Prewitt, Roberts, Laplacian, and Canny edge detection techniques. Each method highlights edges differently based on gradient and intensity variations, improving feature extraction and analysis.
+Thus, edges are successfully detected using Canny edge detection techniques. Each method highlights edges differently based on gradient and intensity variations, improving feature extraction and analysis.
